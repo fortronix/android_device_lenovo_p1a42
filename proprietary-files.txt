@@ -2,7 +2,6 @@ lib64/hw/audio.primary.msm8916.so
 lib64/hw/gps.default.so
 lib64/hw/fingerprint.goldfish.so
 lib64/hw/sensors.msm8916.so
-lib64/hw/keystore.msm8916.so
 lib64/hw/fingerprint.default.so
 lib64/hw/lights.msm8916.so
 lib64/hw/fingerprint.ranchu.so
@@ -54,7 +53,6 @@ bin/btnvtool
 bin/vfmExTest
 
 lib/hw/camera.msm8916.so
-lib/hw/sound_trigger.primary.msm8916.so
 lib/hw/audio.primary.msm8916.so
 lib/hw/gps.default.so
 lib/hw/fingerprint.goldfish.so
@@ -218,6 +216,8 @@ vendor/lib64/libxtadapter.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libdrmtime.so
+vendor/lib64/hw/keystore.msm8916.so
+vendor/lib/hw/sound_trigger.primary.msm8916.so
 vendor/bin/RIDLClient.exe
 vendor/bin/perfd
 vendor/bin/sampleauthdaemon
@@ -234,7 +234,6 @@ vendor/lib/hw/flp.default.so
 vendor/lib/hw/sound_trigger.primary.msm8916.so
 vendor/lib/libmmipl.so
 vendor/lib/libmmqjpeg_codec.so
-vendor/lib/libunwind.so
 vendor/lib/libflp.so
 vendor/lib/libmmcamera_s5k3m2.so
 vendor/lib/libtime_genoff.so
