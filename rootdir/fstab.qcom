@@ -12,7 +12,7 @@
 /dev/block/zram0             none         swap    defaults zramsize=536870912
 #lenovo-sw yexh1 add for usb otg u disk
 /devices/platform/msm_hsusb*              auto         auto       defaults            voldmanaged=usb:auto
-
+/devices/block/bootdevice/by-name/boot       /boot        emmc    defaults            defaults
 #Lenovo,EasyImage
 /dev/block/bootdevice/by-name/preload         /preload      ext4    ro,barrier=1,discard                               wait
 /dev/block/bootdevice/by-name/config         /frp  emmc  defaults defaults
