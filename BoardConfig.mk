@@ -9,7 +9,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/p1a42/bluetooth
 
 # Kernel
 TARGET_KERNEL_CONFIG := passion_row-user_defconfig
-FORCE_32_BIT := true
 TARGET_BOARD_PLATFORM_VARIANT := msm8939
 
 # Partitions
