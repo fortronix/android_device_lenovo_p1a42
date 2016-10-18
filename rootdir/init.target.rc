@@ -227,3 +227,104 @@ service dts_configurator /system/bin/dts_configurator
     user system
     group system
     oneshot
+
+#lenovo-sw weiweij added		
+    chown system system /sys/class/power_supply/ext-charger/fast_charger_is_engineermode		
+    chown system system /sys/class/power_supply/ext-charger/otg_usb_short		
+    chmod 0664 /sys/class/power_supply/ext-charger/fast_charger_is_engineermode		
+    chmod 0666 /sys/class/power_supply/ext-charger/otg_usb_short		
+#lenovo-sw weiweij end
+
+ #lenovo-sw chenglong1 add for flash driver testing		
+    chown system shell /sys/class/leds/torch-light/flash_drv/flash_factory_testing		
+    chown system shell /sys/class/leds/torch-light/flash_drv/torch_factory_testing		
+    chown system shell /sys/class/leds/torch-light/flash_drv/flash_duration_testing		
+    chmod 0660 /sys/class/leds/torch-light/flash_drv/flash_factory_testing		
+    chmod 0660 /sys/class/leds/torch-light/flash_drv/torch_factory_testing		
+    chmod 0660 /sys/class/leds/torch-light/flash_drv/flash_duration_testing		
+    restorecon /sys/class/leds/torch-light/flash_drv/flash_factory_testing		
+    restorecon /sys/class/leds/torch-light/flash_drv/torch_factory_testing		
+    restorecon /sys/class/leds/torch-light/flash_drv/flash_duration_testing		
+    #lenovo-sw add end
+
+#begin lenovo add by wengjun1@lenovo.com		
+    chown system system /sys/board_properties/tpd_suspend_status		
+    chown system system /sys/board_properties/tpd_glove_status		
+#end lenovo add by wengjun1@lenovo.com		
+#begin lenovo add by houdz1@lenovo.com		
+	chmod 0664 /sys/class/leds/button-backlight/brightness		
+	chown system system /sys/class/leds/button-backlight/brightness		
+	chmod 0664 /sys/class/leds/test-led/brightness		
+	chown system system /sys/class/leds/test-led/brightness		
+	chmod 0664 /sys/class/leds/rgbled/brightness		
+	chown system system /sys/class/leds/rgbled/brightness		
+	chmod 0664 /sys/class/leds/rgbled/trigger		
+	chown system system /sys/class/leds/rgbled/trigger		
+	chmod 0664 /sys/bus/i2c/devices/6-0036/dimming_step_time		
+	chown system system /sys/bus/i2c/devices/6-0036/dimming_step_time		
+	restorecon /sys/class/leds/button-backlight/brightness		
+	restorecon /sys/class/leds/test-led/brightness		
+        restorecon /sys/class/leds/rgbled/brightness		
+#end lenovo add by houdz1@lenovo.com		
+#lenovo-sw caoyi1 add for sensor calibration 20151222 begin		
+	chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_x		
+	chown system system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_x		
+	chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_y		
+	chown system system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_y		
+	chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_z		
+	chown system system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_z		
+	restorecon /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_x		
+	restorecon /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_y		
+	restorecon /sys/devices/soc.0/78b6000.i2c/i2c-0/0-000e/fast_calibration_z		
+	chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_1		
+	chown system system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_1		
+	chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_2		
+	chown system system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_2		
+	restorecon /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_1		
+	restorecon /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0023/cali_param_2		
+	chmod 0664 /persist/gsensor_cali_val_x		
+	chown system system /persist/gsensor_cali_val_x		
+	chmod 0664 /persist/gsensor_cali_val_y		
+	chown system system /persist/gsensor_cali_val_y		
+	chmod 0664 /persist/gsensor_cali_val_z		
+	chown system system /persist/gsensor_cali_val_z		
+	restorecon /persist/gsensor_cali_val_x		
+	restorecon /persist/gsensor_cali_val_y		
+	restorecon /persist/gsensor_cali_val_z		
+	chmod 0664 /persist/cali_param_1		
+	chown system system /persist/cali_param_1		
+	chmod 0664 /persist/cali_param_2		
+	chown system system /persist/cali_param_2		
+	restorecon /persist/cali_param_1		
+	restorecon /persist/cali_param_2		
+#lenovo-sw caoyi1 add for sensor calibration 20151222 end
+
+#lenovo-sw weiweij added for fast_charger_sw fast charger switch dameon		
+service fast_charger_sw /system/bin/fast_charger_sw		
+    class  main		
+    user root		
+    seclabel u:r:fast_charger_sw:s0		
+#lenovo-sw weiweij added for fast_charger_sw fast charger switch dameon end
+
+#lenovo-sw, chenzz3, added fingerprint daemon service, begin		
+#synaptics fingerprint service		
+    chmod 0755 /system/bin/vfmService
+    chmod 0660 /dev/vfsspi
+    chown system system /dev/vfsspi
+    mkdir /data/validity 0775 system system
+    mkdir /dev/validity 0775 system system
+	start fingerprintd
+on property:sys.listeners.registered=true
+    start vfmservice
+
+service vfmservice /system/bin/vfmService		
+    user system		
+    group system		
+    class main		
+    disabled
+
+#fingerpirntd		
+service fingerprintd /system/bin/fingerprintd		
+    class late_start		
+    user system		
+#lenovo-sw, chenzz3, added fingerprint daemon service, end
